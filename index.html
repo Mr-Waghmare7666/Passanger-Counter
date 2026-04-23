@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Passenger Counter</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main class="app-shell">
+            <section class="container">
+                <p class="tag">Station Dashboard</p>
+                <h1>Passenger Counter</h1>
+
+                <div class="count-wrap">
+                    <h2 id="count-el" class="count">0</h2>
+                    <p id="status-el" class="status">Ready to count</p>
+                </div>
+
+                <div class="btn-row">
+                    <button id="increment-btn" onclick="increment()">+1 Passenger</button>
+                    <button id="decrement-btn" onclick="decrement()">-1 Passenger</button>
+                    <button id="save-btn" onclick="save()">Save Entry</button>
+                    <button id="reset-btn" onclick="resetAll()">Reset</button>
+                </div>
+
+                <div class="entries-wrap">
+                    <p class="entries-title">Previous entries</p>
+                    <p id="save-el" class="entries">No entries yet.</p>
+                </div>
+            </section>
+        </main>
+
+        <script src="index.js"></script>
+    </body>
+</html>

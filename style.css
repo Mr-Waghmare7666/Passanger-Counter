@@ -1,0 +1,180 @@
+:root {
+    --bg-start: #d4fc79;
+    --bg-end: #96e6a1;
+    --card: #ffffff;
+    --text: #12343b;
+    --muted: #406267;
+    --accent: #0f766e;
+    --danger: #be123c;
+    --warning: #c2410c;
+    --shadow: 0 18px 45px rgba(18, 52, 59, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at 10% 20%, #fef9c3 0%, transparent 35%),
+        radial-gradient(circle at 90% 80%, #bbf7d0 0%, transparent 32%),
+        linear-gradient(120deg, var(--bg-start), var(--bg-end));
+    overflow-x: hidden;
+}
+
+.app-shell {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1.2rem;
+}
+
+.container {
+    width: min(680px, 100%);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.95), #ffffff);
+    border: 1px solid rgba(18, 52, 59, 0.15);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    text-align: center;
+    animation: liftIn 650ms ease;
+}
+
+.tag {
+    margin: 0;
+    color: var(--accent);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+}
+
+h1 {
+    margin: 0.35rem 0 1rem;
+    font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+}
+
+.count-wrap {
+    margin: 0.7rem auto 1.2rem;
+    padding: 1rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ecfeff, #f0fdfa);
+    border: 1px solid rgba(15, 118, 110, 0.15);
+}
+
+.count {
+    font-size: clamp(2.8rem, 12vw, 5rem);
+    margin: 0;
+    line-height: 1;
+    transition: transform 180ms ease;
+}
+
+.status {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+    min-height: 1.2rem;
+    font-size: 0.95rem;
+}
+
+.btn-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+button {
+    border: none;
+    padding: 0.8rem 0.9rem;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: transform 150ms ease, filter 220ms ease, box-shadow 220ms ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+}
+
+button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+#increment-btn {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+}
+
+#decrement-btn {
+    background: linear-gradient(135deg, #c2410c, #ea580c);
+}
+
+#save-btn {
+    background: linear-gradient(135deg, #166534, #22c55e);
+}
+
+#reset-btn {
+    background: linear-gradient(135deg, #be123c, #f43f5e);
+}
+
+.entries-wrap {
+    margin-top: 1.2rem;
+    text-align: left;
+    border-top: 1px dashed rgba(18, 52, 59, 0.2);
+    padding-top: 0.8rem;
+}
+
+.entries-title {
+    margin: 0;
+    font-weight: 700;
+}
+
+.entries {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.bump {
+    animation: bump 260ms ease;
+}
+
+@keyframes liftIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes bump {
+    0% {
+        transform: scale(0.95);
+    }
+    55% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 540px) {
+    .container {
+        padding: 1.1rem;
+        border-radius: 18px;
+    }
+
+    .btn-row {
+        grid-template-columns: 1fr;
+    }
+}
+
